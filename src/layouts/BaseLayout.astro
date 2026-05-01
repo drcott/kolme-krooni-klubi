@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang: string;
+}
+
+const { title, description = 'Kolme Krooni Klubi', lang } = Astro.props;
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title} – Kolme Krooni Klubi</title>
+  </head>
+  <body class="min-h-screen bg-white text-gray-900 font-serif">
+    <header class="border-b border-gray-200 bg-white">
+      <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href={`/${lang}/`} class="text-xl font-bold tracking-wide uppercase">
+          Kolme Krooni Klubi
+        </a>
+        <nav class="flex gap-4 text-sm">
+          <a href={`/${lang}/`} class="hover:underline">
+            {lang === 'et' ? 'Avaleht' : lang === 'sv' ? 'Hem' : 'Home'}
+          </a>
+          <a href={`/${lang}/meist/`} class="hover:underline">
+            {lang === 'et' ? 'Meist' : lang === 'sv' ? 'Om oss' : 'About'}
+          </a>
+          <a href={`/${lang}/blogi/`} class="hover:underline">
+            {lang === 'et' ? 'Blogi' : lang === 'sv' ? 'Blogg' : 'Blog'}
+          </a>
+          <a href={`/${lang}/kontakt/`} class="hover:underline">
+            {lang === 'et' ? 'Kontakt' : lang === 'sv' ? 'Kontakt' : 'Contact'}
+          </a>
+        </nav>
+        <div class="flex gap-2 text-sm">
+          <a href="/et/" class={lang === 'et' ? 'font-bold underline' : 'hover:underline'}>ET</a>
+          <a href="/sv/" class={lang === 'sv' ? 'font-bold underline' : 'hover:underline'}>SV</a>
+          <a href="/en/" class={lang === 'en' ? 'font-bold underline' : 'hover:underline'}>EN</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8">
+      <slot />
+    </main>
+
+    <footer class="border-t border-gray-200 mt-16">
+      <div class="max-w-5xl mx-auto px-4 py-6 text-sm text-gray-500 text-center">
+        &copy; {new Date().getFullYear()} Kolme Krooni Klubi
+      </div>
+    </footer>
+  </body>
+</html>
