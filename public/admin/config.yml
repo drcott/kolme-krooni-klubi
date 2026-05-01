@@ -62,6 +62,7 @@ collections:
     create: false
     extension: md
     format: frontmatter
+    slug: "{{fields.slug}}.et"
     filter:
       field: lang
       value: et
