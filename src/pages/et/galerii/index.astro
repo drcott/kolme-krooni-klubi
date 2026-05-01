@@ -3,7 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const albumid = (await getCollection('galerii', ({ data }) => data.lang === 'et'))
-  .filter(a => a.data.slug !== 'galerii'); // jäta üldlehe kirje välja
+  .filter(a => a.data.slug !== 'galerii')
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 ---
 
 <BaseLayout title="Galerii" lang="et">

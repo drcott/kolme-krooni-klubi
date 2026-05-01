@@ -1,4 +1,5 @@
 ---
+order: 9
 title: "Viiburi Juuli 2010"
 slug: "viiburi-2010"
 lang: "et"

@@ -1,4 +1,5 @@
 ---
+order: 8
 title: "Narva August 2010"
 slug: "narva-2010"
 lang: "et"

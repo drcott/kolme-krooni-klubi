@@ -1,4 +1,5 @@
 ---
+order: 1
 title: "Narva november 2014"
 slug: "narva-november-2014"
 lang: "et"

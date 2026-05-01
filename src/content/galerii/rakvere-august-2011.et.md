@@ -1,4 +1,5 @@
 ---
+order: 6
 title: "Rakvere August 2011"
 slug: "rakvere-august-2011"
 lang: "et"

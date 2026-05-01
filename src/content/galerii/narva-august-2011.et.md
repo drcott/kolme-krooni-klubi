@@ -1,4 +1,5 @@
 ---
+order: 5
 title: "Narva August 2011"
 slug: "narva-august-2011"
 lang: "et"

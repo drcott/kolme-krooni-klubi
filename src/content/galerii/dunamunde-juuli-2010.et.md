@@ -1,4 +1,5 @@
 ---
+order: 10
 title: "Harju maarügement!"
 slug: "dunamunde-juuli-2010"
 lang: "et"

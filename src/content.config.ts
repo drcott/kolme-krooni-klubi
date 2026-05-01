@@ -8,6 +8,7 @@ const artikkel = z.object({
   kategooria: z.string(),
   date: z.string().optional(),
   author: z.string().optional(),
+  order: z.number().optional(),
 });
 
 const mkCollection = (dir: string) => defineCollection({
