@@ -1,0 +1,143 @@
+backend:
+  name: github
+  repo: drcott/kolme-krooni-klubi
+  branch: master
+  base_url: https://kolme-krooni-klubi.marko-a00.workers.dev
+  auth_endpoint: /auth/
+
+locale: et
+
+media_folder: public/pildid/yles-laetud
+public_folder: /pildid/yles-laetud
+
+collections:
+
+  # ── BLOGI ─────────────────────────────────────────────────────────
+  - name: blogi
+    label: "Blogi / Uudised"
+    label_singular: "Blogipostitus"
+    folder: src/content/blogi
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{fields.slug}}.et"
+    filter:
+      field: lang
+      value: et
+    fields:
+      - label: "Pealkiri"
+        name: title
+        widget: string
+      - label: "URL-i tunnus (slug)"
+        name: slug
+        widget: string
+        hint: "Ainult väiketähed ja kriipsud, nt: narva-lahing-2026"
+      - label: "Kuupäev"
+        name: date
+        widget: string
+        required: false
+        hint: "Näiteks: 14. juuni 2026"
+      - label: "Autor"
+        name: author
+        widget: string
+        default: "Marko Moor"
+        required: false
+      - label: "Sisu"
+        name: body
+        widget: markdown
+      - label: "Keel"
+        name: lang
+        widget: hidden
+        default: et
+      - label: "Kategooria"
+        name: kategooria
+        widget: hidden
+        default: blogi
+
+  # ── HARJU MAARÜGEMENT ──────────────────────────────────────────────
+  - name: harju-maarugement
+    label: "Harju Maarügement"
+    label_singular: "Artikkel"
+    folder: src/content/harju-maarugement
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{fields.slug}}.et"
+    filter:
+      field: lang
+      value: et
+    fields:
+      - label: "Pealkiri"
+        name: title
+        widget: string
+      - label: "URL-i tunnus (slug)"
+        name: slug
+        widget: string
+        hint: "Ainult väiketähed ja kriipsud"
+      - label: "Sisu"
+        name: body
+        widget: markdown
+      - label: "Keel"
+        name: lang
+        widget: hidden
+        default: et
+      - label: "Kategooria"
+        name: kategooria
+        widget: hidden
+        default: harju-maarugement
+
+  # ── LISAINFORMATSIOON ──────────────────────────────────────────────
+  - name: lisainformatsioon
+    label: "Lisainformatsioon"
+    label_singular: "Artikkel"
+    folder: src/content/lisainformatsioon
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{fields.slug}}.et"
+    filter:
+      field: lang
+      value: et
+    fields:
+      - label: "Pealkiri"
+        name: title
+        widget: string
+      - label: "URL-i tunnus (slug)"
+        name: slug
+        widget: string
+      - label: "Sisu"
+        name: body
+        widget: markdown
+      - label: "Keel"
+        name: lang
+        widget: hidden
+        default: et
+      - label: "Kategooria"
+        name: kategooria
+        widget: hidden
+        default: lisainformatsioon
+
+  # ── STAATILISED LEHED ─────────────────────────────────────────────
+  - name: lehed
+    label: "Staatilised lehed"
+    label_singular: "Leht"
+    files:
+      - label: "Kontakt"
+        name: kontakt
+        file: src/content/lehed/kontakt.et.md
+        fields:
+          - { label: Pealkiri, name: title, widget: string }
+          - { label: Sisu, name: body, widget: markdown }
+          - { label: Keel, name: lang, widget: hidden, default: et }
+          - { label: Kategooria, name: kategooria, widget: hidden, default: lehed }
+          - { label: Slug, name: slug, widget: hidden, default: kontakt }
+
+      - label: "Koostööpartnerid"
+        name: toetajad
+        file: src/content/lehed/toetajad.et.md
+        fields:
+          - { label: Pealkiri, name: title, widget: string }
+          - { label: Sisu, name: body, widget: markdown }
+          - { label: Keel, name: lang, widget: hidden, default: et }
+          - { label: Kategooria, name: kategooria, widget: hidden, default: lehed }
+          - { label: Slug, name: slug, widget: hidden, default: toetajad }
