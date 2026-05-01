@@ -2,8 +2,21 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
+const KUUD: Record<string, number> = {
+  jaanuar: 1, veebruar: 2, märts: 3, aprill: 4, mai: 5, juuni: 6,
+  juuli: 7, august: 8, september: 9, oktoober: 10, november: 11, detsember: 12,
+};
+
+function kuupaevTimestamp(s?: string): number {
+  if (!s) return 0;
+  const m = s.match(/(\d+)\.\s+(\S+)\s+(\d{4})/);
+  if (!m) return 0;
+  const [, day, month, year] = m;
+  return new Date(+year, (KUUD[month.toLowerCase()] ?? 1) - 1, +day).getTime();
+}
+
 const posts = (await getCollection('blogi', ({ data }) => data.lang === 'et'))
-  .sort((a, b) => (b.data.date ?? '').localeCompare(a.data.date ?? ''));
+  .sort((a, b) => kuupaevTimestamp(b.data.date) - kuupaevTimestamp(a.data.date));
 ---
 
 <BaseLayout title="Blogi" lang="et">
