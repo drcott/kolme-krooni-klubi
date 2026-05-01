@@ -1,0 +1,66 @@
+---
+// Ühtne stiil kõigile markdown-artiklitele
+---
+<style is:global>
+  .artikkel-sisu h2 {
+    font-family: 'Cinzel', 'EB Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--pruun);
+    margin: 2rem 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--piir-hele);
+  }
+  .artikkel-sisu h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--pruun);
+    margin: 1.5rem 0 0.5rem;
+  }
+  .artikkel-sisu p { margin-bottom: 1rem; }
+  .artikkel-sisu ul, .artikkel-sisu ol {
+    margin: 0.5rem 0 1rem 1.5rem;
+  }
+  .artikkel-sisu li { margin-bottom: 0.3rem; }
+  .artikkel-sisu img {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem auto;
+    display: block;
+    border: 1px solid var(--piir-hele);
+  }
+  .artikkel-sisu a {
+    color: var(--pruun);
+    text-decoration: underline;
+  }
+  .artikkel-sisu a:hover { color: var(--kuld); }
+  .artikkel-sisu blockquote {
+    border-left: 3px solid var(--kuld);
+    background: var(--paber-varjund);
+    padding: 12px 20px;
+    margin: 1rem 0;
+    font-style: italic;
+    color: var(--tekst-hele);
+  }
+  .artikkel-sisu table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+  }
+  .artikkel-sisu th {
+    background: var(--pruun);
+    color: var(--paber);
+    padding: 8px 12px;
+    text-align: left;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+  }
+  .artikkel-sisu td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--piir-hele);
+  }
+  .artikkel-sisu tr:nth-child(even) td { background: var(--paber-varjund); }
+</style>

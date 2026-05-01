@@ -11,11 +11,10 @@ tegutsevatele ettevõtetele parima teeninduse ja soodsa hinnatasemega
 kvaliteetset paberikaupade, kontoritarvete, esitlusvahendite ja
 kulumaterjalidega varustamise teenust.
 
-[![](./photos/logo.gif)](http://www.kontorikaubad.ee)  
-  
-  
+[Orient Kontorikaubad AS](http://www.kontorikaubad.ee)
+
 Kaitseliidu Viru Malev  
-[![](./photos/mark-100x99.png)](http://www.virumalev.ee/kl/)  
+[Viru Malev](http://www.virumalev.ee/kl/)  
   
   
 Promoflash OÜ

@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Lehte ei leitud" lang="et">
+  <div class="ei-leitud">
+    <div class="kood">404</div>
+    <h1>Lehte ei leitud</h1>
+    <p>Otsitud leht ei ole olemas või on aadress muutunud.</p>
+    <a href="/et/" class="tagasi-nupp">← Tagasi avalehele</a>
+  </div>
+</BaseLayout>
+
+<style>
+.ei-leitud {
+  text-align: center;
+  padding: 60px 20px;
+}
+.kood {
+  font-family: 'Cinzel', serif;
+  font-size: 5rem;
+  font-weight: 600;
+  color: var(--piir);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  color: var(--pruun);
+  margin-bottom: 12px;
+}
+p { color: var(--tekst-hele); font-style: italic; margin-bottom: 32px; }
+.tagasi-nupp {
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pruun);
+  text-decoration: none;
+  border: 1px solid var(--piir);
+  padding: 10px 24px;
+  transition: all .2s;
+  display: inline-block;
+}
+.tagasi-nupp:hover {
+  background: var(--pruun);
+  color: var(--paber);
+  border-color: var(--pruun);
+}
+</style>

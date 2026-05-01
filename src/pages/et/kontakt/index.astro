@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Kontakt" lang="et">
+  <h1 class="lehe-pealkiri">Kontakt</h1>
+
+  <div class="kontakt-sisu">
+    <div class="kontakt-plokk">
+      <div class="sek-pealkiri">Üldinfo</div>
+      <dl class="kontakt-andmed">
+        <dt>Organisatsioon</dt>
+        <dd>MTÜ Kolme Krooni Klubi</dd>
+        <dt>E-post</dt>
+        <dd><a href="mailto:info@kolmekrooniklubi.ee">info@kolmekrooniklubi.ee</a></dd>
+        <dt>Asukoht</dt>
+        <dd>Eesti</dd>
+      </dl>
+    </div>
+
+    <div class="kontakt-plokk">
+      <div class="sek-pealkiri">Liitu klubiga</div>
+      <p>
+        Oled huvitatud ajaloorekonstrunktsiooni harrastamisest või Põhjasõja ajaloost?
+        Võta meiega ühendust e-posti teel — vastame hea meelega.
+      </p>
+    </div>
+
+    <div class="kontakt-plokk">
+      <div class="sek-pealkiri">Sotsiaalmeedia</div>
+      <p>
+        Leia meid Facebookist otsides <strong>Kolme Krooni Klubi</strong>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+.lehe-pealkiri {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--pruun);
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--piir);
+  margin-bottom: 32px;
+  letter-spacing: 0.04em;
+}
+.kontakt-sisu {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+  align-items: start;
+}
+.kontakt-plokk {
+  background: var(--paber-varjund);
+  border: 1px solid var(--piir-hele);
+  padding: 24px;
+}
+.sek-pealkiri {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--kuld);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--piir);
+  margin-bottom: 16px;
+}
+.kontakt-andmed { font-size: 0.95rem; }
+.kontakt-andmed dt {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kuld);
+  margin-top: 12px;
+}
+.kontakt-andmed dt:first-child { margin-top: 0; }
+.kontakt-andmed dd { color: var(--tekst); margin-left: 0; }
+.kontakt-andmed a { color: var(--pruun); }
+.kontakt-andmed a:hover { color: var(--kuld); }
+.kontakt-plokk p { font-size: 0.95rem; color: var(--tekst-hele); line-height: 1.7; }
+</style>

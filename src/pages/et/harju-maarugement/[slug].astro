@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleSisu from '../../../components/ArticleSisu.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const artiklid = await getCollection('harju-maarugement', ({ data }) => data.lang === 'et');
+  return artiklid.map(a => ({
+    params: { slug: a.data.slug },
+    props: { artikkel: a },
+  }));
+}
+
+const { artikkel } = Astro.props;
+const { Content } = await render(artikkel);
+---
+
+<BaseLayout title={artikkel.data.title} lang="et">
+  <ArticleSisu />
+
+  <article>
+    <div class="artikkel-päis">
+      <a href="/et/harju-maarugement/" class="tagasi">← Harju Maarügement</a>
+      <h1>{artikkel.data.title}</h1>
+    </div>
+    <div class="artikkel-sisu">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+.artikkel-päis {
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--piir);
+  margin-bottom: 32px;
+}
+.tagasi {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--kuld);
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+}
+.tagasi:hover { text-decoration: underline; }
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--pruun);
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+</style>

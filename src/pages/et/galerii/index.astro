@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const albumid = (await getCollection('galerii', ({ data }) => data.lang === 'et'))
+  .filter(a => a.data.slug !== 'galerii'); // jäta üldlehe kirje välja
+---
+
+<BaseLayout title="Galerii" lang="et">
+  <h1 class="lehe-pealkiri">Galerii / Meedia</h1>
+
+  <div class="albumid-ruudustik">
+    {albumid.map(album => (
+      <a href={`/et/galerii/${album.data.slug}/`} class="album-kaart">
+        <div class="album-pealkiri">{album.data.title}</div>
+      </a>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+.lehe-pealkiri {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--pruun);
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--piir);
+  margin-bottom: 32px;
+  letter-spacing: 0.04em;
+}
+.albumid-ruudustik {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.album-kaart {
+  background: var(--paber-varjund);
+  border: 1px solid var(--piir);
+  padding: 20px 16px;
+  text-decoration: none;
+  transition: background .2s, border-color .2s;
+  display: block;
+}
+.album-kaart:hover {
+  background: var(--pruun);
+  border-color: var(--pruun);
+}
+.album-kaart:hover .album-pealkiri { color: var(--paber); }
+
+.album-pealkiri {
+  font-family: 'Cinzel', serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--pruun);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+</style>

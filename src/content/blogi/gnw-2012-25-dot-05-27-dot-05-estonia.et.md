@@ -95,15 +95,15 @@ saa osa!**
 
 [![](/pildid/blogi/Sagadi_S_large.jpg)](http://www.sagadi.ee/) [RMK Sagadi mõis](http://www.sagadi.ee/)
 
-[![](../photos/mark-100x99.png?1336509399982)](http://www.virumalev.ee/) [Viru Malev](http://www.virumalev.ee/)
+[](http://www.virumalev.ee/) [Viru Malev](http://www.virumalev.ee/)
 
 [![](/pildid/blogi/leader_large.jpg)](http://www.agri.ee/leader) [LEADER](http://www.agri.ee/leader)
 
 [![](/pildid/blogi/ArenduskodaSuur_large.jpg)](http://www.arenduskoda.ee/) [MTÜ Arenduskoda](http://www.arenduskoda.ee/et/)
 
-[![](../photos/Vihula.jpg?1336510633115)](http://www.vihula.ee/) [Vihula vald](http://www.vihula.ee/)
+[](http://www.vihula.ee/) [Vihula vald](http://www.vihula.ee/)
 
-[![](../photos/Oriendi%20uus%20logo%20v%C3%A4rviline%20PDF%2012.10.jpg?1336510811732)](https://kontorikaubad.ee/) [Orient Kontorikaubad AS](https://kontorikaubad.ee/)
+[](https://kontorikaubad.ee/) [Orient Kontorikaubad AS](https://kontorikaubad.ee/)
 
 [![](/pildid/blogi/nerike_large.jpg)](http://www.nwcaroliner.se/) [Nerike Wermelands Regiment](http://www.nwcaroliner.se/)
 
@@ -117,4 +117,4 @@ saa osa!**
 
 ![](/pildid/blogi/canvasblod2_large.jpg)  
   
-[![](../photos/deebet%20copy.jpg?1336510982498)](http://www.deebet.ee/)
+[](http://www.deebet.ee/)

@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleSisu from '../../../components/ArticleSisu.astro';
+import { getCollection, render } from 'astro:content';
+
+const [meistLeht] = await getCollection('meist', ({ data }) =>
+  data.lang === 'et' && data.slug === 'harju-maarugement'
+);
+const { Content } = meistLeht ? await render(meistLeht) : { Content: null };
+---
+
+<BaseLayout title="Meist" lang="et">
+  <ArticleSisu />
+
+  <div class="meist-päis">
+    <h1>Meist</h1>
+    <p>MTÜ Kolme Krooni Klubi on 2009. aastal asutatud ajalooklubi.</p>
+  </div>
+
+  <div class="meist-lingid">
+    <a href="/et/harju-maarugement/" class="meist-link">
+      <span class="meist-link-pealkiri">Harju Maarügement</span>
+      <span class="meist-link-kirjeldus">Artiklid rügemendi ajaloo kohta</span>
+    </a>
+    <a href="/et/lisainformatsioon/" class="meist-link">
+      <span class="meist-link-pealkiri">Lisainformatsioon</span>
+      <span class="meist-link-kirjeldus">Lisalugemine ja seotud teemad</span>
+    </a>
+    <a href="/et/kontakt/" class="meist-link">
+      <span class="meist-link-pealkiri">Kontakt</span>
+      <span class="meist-link-kirjeldus">Võta ühendust</span>
+    </a>
+  </div>
+
+  {meistLeht && Content && (
+    <div class="artikkel-sisu" style="margin-top: 40px;">
+      <Content />
+    </div>
+  )}
+</BaseLayout>
+
+<style>
+.meist-päis {
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--piir);
+  margin-bottom: 32px;
+}
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--pruun);
+  letter-spacing: 0.04em;
+}
+.meist-päis p {
+  color: var(--tekst-hele);
+  font-style: italic;
+  margin-top: 8px;
+}
+.meist-lingid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.meist-link {
+  background: var(--paber-varjund);
+  border: 1px solid var(--piir);
+  padding: 20px;
+  text-decoration: none;
+  display: block;
+  transition: all .2s;
+}
+.meist-link:hover {
+  background: var(--pruun);
+  border-color: var(--pruun);
+}
+.meist-link:hover .meist-link-pealkiri,
+.meist-link:hover .meist-link-kirjeldus { color: var(--paber); }
+.meist-link-pealkiri {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--pruun);
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.meist-link-kirjeldus {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--tekst-hele);
+  font-style: italic;
+}
+</style>

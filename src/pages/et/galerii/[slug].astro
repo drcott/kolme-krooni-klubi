@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleSisu from '../../../components/ArticleSisu.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const albumid = await getCollection('galerii', ({ data }) => data.lang === 'et');
+  return albumid.map(a => ({
+    params: { slug: a.data.slug },
+    props: { album: a },
+  }));
+}
+
+const { album } = Astro.props;
+const { Content } = await render(album);
+---
+
+<BaseLayout title={album.data.title} lang="et">
+  <ArticleSisu />
+
+  <article>
+    <div class="artikkel-päis">
+      <a href="/et/galerii/" class="tagasi">← Galerii</a>
+      <h1>{album.data.title}</h1>
+    </div>
+    <div class="artikkel-sisu galerii-sisu">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+.artikkel-päis {
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--piir);
+  margin-bottom: 32px;
+}
+.tagasi {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--kuld);
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+}
+.tagasi:hover { text-decoration: underline; }
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--pruun);
+  line-height: 1.25;
+}
+</style>
+
+<style is:global>
+/* Galerii piltide ruudustik */
+.galerii-sisu img {
+  width: calc(33.33% - 8px);
+  height: 200px;
+  object-fit: cover;
+  display: inline-block;
+  margin: 4px;
+  vertical-align: top;
+  border: 1px solid var(--piir-hele);
+  filter: sepia(20%);
+  transition: filter .3s, transform .2s;
+}
+.galerii-sisu img:hover {
+  filter: sepia(0%);
+  transform: scale(1.02);
+  z-index: 1;
+  position: relative;
+}
+@media (max-width: 600px) {
+  .galerii-sisu img { width: calc(50% - 8px); height: 140px; }
+}
+</style>

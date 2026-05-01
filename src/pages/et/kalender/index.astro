@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Kalender" lang="et">
+  <h1 class="lehe-pealkiri">Kalender / Sündmused</h1>
+
+  <p class="sissejuhatus">
+    Kolme Krooni Klubi osaleb igal aastal mitmetes ajaloosündmustes ja rekonstruktsioonidel.
+    Täpsemad toimumisajad avaldatakse lähemale jõudes.
+  </p>
+
+  <div class="sek-pealkiri">Regulaarsed üritused</div>
+
+  <ul class="sundmuste-nimekiri">
+    <li class="sundmus">
+      <div class="sundmus-kuu">Juuli</div>
+      <div class="sundmus-info">
+        <strong>Narva rekonstruktsioon</strong>
+        <p>Iga-aastane rekonstruktsioonlahing Narvas, Hermanni kindluse juures.</p>
+      </div>
+    </li>
+    <li class="sundmus">
+      <div class="sundmus-kuu">November</div>
+      <div class="sundmus-info">
+        <strong>Talvine Narva lahing</strong>
+        <p>Narva 1700 talvise lahingu rekonstruktsioon — meie suurim iga-aastane üritus.</p>
+      </div>
+    </li>
+    <li class="sundmus">
+      <div class="sundmus-kuu">Suvi</div>
+      <div class="sundmus-info">
+        <strong>GNW rahvusvaheline festival</strong>
+        <p>Kord kahe-kolme aasta jooksul korraldatav rahvusvaheline Põhjasõja rekonstruktsioonüritus.</p>
+      </div>
+    </li>
+    <li class="sundmus">
+      <div class="sundmus-kuu">Aastaringselt</div>
+      <div class="sundmus-info">
+        <strong>Väljaõppepäevad</strong>
+        <p>Regulaarsed väljaõppepäevad Harjumaal — ajastutruude vormide, relvade ja drilli harjutamine.</p>
+      </div>
+    </li>
+  </ul>
+
+  <div class="kontakt-vihje">
+    Täpsema info saamiseks võta ühendust: <a href="/et/kontakt/">kontaktileht</a>
+  </div>
+</BaseLayout>
+
+<style>
+.lehe-pealkiri {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--pruun);
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--piir);
+  margin-bottom: 20px;
+  letter-spacing: 0.04em;
+}
+.sissejuhatus {
+  color: var(--tekst-hele);
+  font-style: italic;
+  margin-bottom: 32px;
+  max-width: 640px;
+}
+.sek-pealkiri {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--kuld);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--piir);
+  margin-bottom: 24px;
+}
+.sundmuste-nimekiri { list-style: none; }
+.sundmus {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--piir-hele);
+  align-items: start;
+}
+.sundmus:last-child { border-bottom: none; }
+.sundmus-kuu {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  color: var(--kuld);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border: 1px solid var(--piir);
+  background: var(--paber-varjund);
+  text-align: center;
+  height: fit-content;
+}
+.sundmus-info strong {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--pruun);
+  display: block;
+  margin-bottom: 4px;
+}
+.sundmus-info p { font-size: 0.93rem; color: var(--tekst-hele); }
+.kontakt-vihje {
+  margin-top: 32px;
+  padding: 16px 20px;
+  background: var(--paber-varjund);
+  border-left: 3px solid var(--kuld);
+  font-size: 0.95rem;
+  color: var(--tekst-hele);
+  font-style: italic;
+}
+.kontakt-vihje a { color: var(--pruun); }
+@media (max-width: 600px) {
+  .sundmus { grid-template-columns: 1fr; gap: 8px; }
+}
+</style>

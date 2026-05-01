@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const artiklid = await getCollection('lisainformatsioon', ({ data }) => data.lang === 'et');
+---
+
+<BaseLayout title="Lisainformatsioon" lang="et">
+  <h1 class="lehe-pealkiri">Lisainformatsioon</h1>
+
+  <ul class="artiklite-nimekiri">
+    {artiklid.map(a => (
+      <li>
+        <a href={`/et/lisainformatsioon/${a.data.slug}/`}>{a.data.title}</a>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+
+<style>
+.lehe-pealkiri {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--pruun);
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--piir);
+  margin-bottom: 32px;
+  letter-spacing: 0.04em;
+}
+.artiklite-nimekiri { list-style: none; border-top: 1px solid var(--piir-hele); }
+.artiklite-nimekiri li { border-bottom: 1px solid var(--piir-hele); }
+.artiklite-nimekiri a {
+  display: block;
+  padding: 14px 0;
+  color: var(--pruun);
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: color .2s, padding-left .2s;
+}
+.artiklite-nimekiri a::before { content: '❧ '; color: var(--kuld); font-size: 0.85em; }
+.artiklite-nimekiri a:hover { color: var(--kuld); padding-left: 8px; }
+</style>

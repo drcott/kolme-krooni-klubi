@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blogi', ({ data }) => data.lang === 'et'))
+  .sort((a, b) => (b.data.date ?? '').localeCompare(a.data.date ?? ''));
+---
+
+<BaseLayout title="Blogi" lang="et">
+  <h1 class="lehe-pealkiri">Blogi / Uudised</h1>
+
+  <ul class="blogi-nimekiri">
+    {posts.map(post => (
+      <li class="blogi-post">
+        <div class="kuupaev-plokk">
+          <div class="kuu">{post.data.date ?? '—'}</div>
+        </div>
+        <div class="post-sisu">
+          <h2><a href={`/et/blogi/${post.data.slug}/`}>{post.data.title}</a></h2>
+          {post.data.author && <div class="autor">{post.data.author}</div>}
+          <a href={`/et/blogi/${post.data.slug}/`} class="loe-edasi">Loe edasi →</a>
+        </div>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+
+<style>
+.lehe-pealkiri {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--pruun);
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--piir);
+  margin-bottom: 32px;
+  letter-spacing: 0.04em;
+}
+
+.blogi-nimekiri { list-style: none; }
+
+.blogi-post {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--piir-hele);
+  align-items: start;
+}
+.blogi-post:last-child { border-bottom: none; }
+
+.kuupaev-plokk {
+  border: 1px solid var(--piir);
+  padding: 10px;
+  background: var(--paber-varjund);
+  text-align: center;
+}
+.kuu {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--kuld);
+  text-transform: uppercase;
+}
+
+.post-sisu h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.post-sisu h2 a {
+  color: var(--pruun);
+  text-decoration: none;
+}
+.post-sisu h2 a:hover { color: var(--kuld); text-decoration: underline; }
+
+.autor {
+  font-size: 0.85rem;
+  color: var(--tekst-hele);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.loe-edasi {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--kuld);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.loe-edasi:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .blogi-post { grid-template-columns: 1fr; gap: 8px; }
+}
+</style>
