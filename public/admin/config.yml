@@ -54,6 +54,44 @@ collections:
         widget: hidden
         default: blogi
 
+  # ── GALERII ───────────────────────────────────────────────────────
+  - name: galerii
+    label: "Galerii albumid"
+    label_singular: "Album"
+    folder: src/content/galerii
+    create: false
+    extension: md
+    format: frontmatter
+    filter:
+      field: lang
+      value: et
+    fields:
+      - label: "Pealkiri"
+        name: title
+        widget: string
+      - label: "Järjekorranumber"
+        name: order
+        widget: number
+        value_type: int
+        min: 1
+        max: 99
+        hint: "Väiksem number = eespool galeriis (1 = esimene)"
+      - label: "Sisu (piltide kirjeldus)"
+        name: body
+        widget: markdown
+        required: false
+      - label: "Keel"
+        name: lang
+        widget: hidden
+        default: et
+      - label: "Kategooria"
+        name: kategooria
+        widget: hidden
+        default: galerii
+      - label: "Slug"
+        name: slug
+        widget: string
+
   # ── HARJU MAARÜGEMENT ──────────────────────────────────────────────
   - name: harju-maarugement
     label: "Harju Maarügement"
