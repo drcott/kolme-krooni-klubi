@@ -3,14 +3,284 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Avaleht" lang="et">
-  <section class="py-12">
-    <h1 class="text-4xl font-bold mb-4">Kolme Krooni Klubi</h1>
-    <p class="text-xl text-gray-600 mb-8">
-      Eesti ajalooklubi, mis tegeleb Harju Maarügemendi ja Põhjasõja ajaloo uurimise ning tutvustamisega.
-    </p>
-    <div class="bg-amber-50 border border-amber-200 rounded p-6 text-amber-900">
-      <p class="font-semibold">🚧 Veebileht on ehitamisel</p>
-      <p class="text-sm mt-1">Uus leht on varsti saadaval. Täname kannatlikkuse eest!</p>
-    </div>
-  </section>
+
+  <!-- Tsitaadi riba -->
+  <div class="tsitaat-riba">
+    <img src="/logo.jpg" alt="" />
+    <span>MTÜ Kolme Krooni Klubi on 2009. aastal asutatud ajalooklubi, mis tegeleb Harju Maarügemendi ja Põhjasõja (1700–1721) ajaloo uurimise ning tutvustamisega läbi elamusliku rekonstruktsiooni.</span>
+  </div>
+
+  <div class="kaks-veergu">
+
+    <!-- Blogi -->
+    <section>
+      <div class="sek-pealkiri">Viimased postitused</div>
+
+      <div class="blogi-post">
+        <div class="kuupaev-plokk">
+          <div class="paev">16</div>
+          <div class="kuu">juuni 2018</div>
+        </div>
+        <div>
+          <h3><a href="/et/blogi/pohjasoja-lahing-rakveres/">Põhjasõja lahing Rakveres</a></h3>
+          <p>Kolme Krooni Klubi osaleb Rakvere linnuses asetleidvas Põhjasõja rekonstruktsioonlahingus. Esmakordselt kasutame äsja Rootsist tulnud kahuri.</p>
+          <a href="/et/blogi/pohjasoja-lahing-rakveres/" class="loe-edasi">Loe edasi →</a>
+        </div>
+      </div>
+
+      <div class="blogi-post">
+        <div class="kuupaev-plokk">
+          <div class="paev">—</div>
+          <div class="kuu">nov 2014</div>
+        </div>
+        <div>
+          <h3><a href="/et/blogi/talvine-narva-lahi/">Talvine Narva lahing</a></h3>
+          <p>Narva 1700 talvise lahingu rekonstruktsioon Narva jõe kaldal — meie iga-aastane peaüritus.</p>
+          <a href="/et/blogi/talvine-narva-lahi/" class="loe-edasi">Loe edasi →</a>
+        </div>
+      </div>
+
+      <div class="blogi-post">
+        <div class="kuupaev-plokk">
+          <div class="paev">—</div>
+          <div class="kuu">aug 2012</div>
+        </div>
+        <div>
+          <h3><a href="/et/blogi/karoliinid-harjumaal/">Karoliinid Harjumaal</a></h3>
+          <p>Sügisene väljaõppepäev Harjumaal, kus harjutasime 18. sajandi alguse sõjaväelist formatsiooni.</p>
+          <a href="/et/blogi/karoliinid-harjumaal/" class="loe-edasi">Loe edasi →</a>
+        </div>
+      </div>
+
+      <div class="blogi-post">
+        <div class="kuupaev-plokk">
+          <div class="paev">—</div>
+          <div class="kuu">mai 2012</div>
+        </div>
+        <div>
+          <h3><a href="/et/blogi/gnw-2012-25-dot-05-27-dot-05-estonia/">GNW 2012 — rahvusvaheline üritus</a></h3>
+          <p>Rahvusvaheline Põhjasõja rekonstruktsioonüritus Eestis, kus osalesid grupid Rootsist, Soomest ja Venemaalt.</p>
+          <a href="/et/blogi/gnw-2012-25-dot-05-27-dot-05-estonia/" class="loe-edasi">Loe edasi →</a>
+        </div>
+      </div>
+
+      <p style="margin-top: 24px;">
+        <a href="/et/blogi/" class="koik-link">Kõik postitused →</a>
+      </p>
+    </section>
+
+    <!-- Külgriba -->
+    <aside class="kylgriba">
+
+      <div class="kylg-plokk">
+        <div class="sek-pealkiri">Tulevased sündmused</div>
+        <div class="sundmus-rida">
+          <span class="sund-kuup">Juuli 2026</span>
+          <span>Narva rekonstruktsioon</span>
+        </div>
+        <div class="sundmus-rida">
+          <span class="sund-kuup">Nov 2026</span>
+          <span>Talvine Narva lahing</span>
+        </div>
+        <div class="sundmus-rida">
+          <span class="sund-kuup">2027</span>
+          <span>GNW festival — täpsustub</span>
+        </div>
+      </div>
+
+      <div class="kylg-plokk">
+        <div class="sek-pealkiri">Galerii</div>
+        <div class="galerii-ruudustik">
+          <a href="/et/galerii/"><img src="/pildid/galerii/DSC00657.jpg" alt="Galerii" /></a>
+          <a href="/et/galerii/"><img src="/pildid/galerii/DSC00681.jpg" alt="Galerii" /></a>
+          <a href="/et/galerii/"><img src="/pildid/galerii/Viiburi.jpg" alt="Viiburi" /></a>
+          <a href="/et/galerii/"><img src="/pildid/galerii/dunamunde.jpg" alt="Dünamünde" /></a>
+          <a href="/et/galerii/"><img src="/pildid/galerii/DSC03013.jpg" alt="Galerii" /></a>
+          <a href="/et/galerii/"><img src="/pildid/galerii/Untitled-1.jpg" alt="Galerii" /></a>
+        </div>
+        <p style="margin-top: 10px; font-size: 0.88rem;">
+          <a href="/et/galerii/" class="koik-link">Vaata kõiki fotosid →</a>
+        </p>
+      </div>
+
+      <div class="kylg-plokk">
+        <div class="sek-pealkiri">Meist</div>
+        <p class="meist-tekst">MTÜ Kolme Krooni Klubi on 2009. aastal asutatud ajalooklubi, mis tegeleb Harju Maarügemendi ja Põhjasõja ajaloo uurimise ning tutvustamisega.</p>
+        <p style="margin-top: 10px; font-size: 0.88rem;">
+          <a href="/et/meist/" class="koik-link">Loe lähemalt →</a>
+        </p>
+      </div>
+
+    </aside>
+  </div>
+
 </BaseLayout>
+
+<style>
+.tsitaat-riba {
+  border: 1px solid var(--piir);
+  border-left: 4px solid var(--kuld);
+  background: var(--paber-varjund);
+  padding: 20px 28px;
+  margin-bottom: 40px;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--pruun);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.tsitaat-riba img {
+  height: 56px;
+  width: auto;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.kaks-veergu {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 48px;
+}
+
+.sek-pealkiri {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--kuld);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--piir);
+  margin-bottom: 24px;
+}
+
+/* Blogi */
+.blogi-post {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--piir-hele);
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 20px;
+}
+.blogi-post:last-of-type { border-bottom: none; }
+
+.kuupaev-plokk {
+  text-align: center;
+  border: 1px solid var(--piir);
+  padding: 8px 6px;
+  background: var(--paber-varjund);
+  height: fit-content;
+}
+.kuupaev-plokk .paev {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--pruun);
+  line-height: 1;
+}
+.kuupaev-plokk .kuu {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--kuld);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.blogi-post h3 a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--pruun);
+  text-decoration: none;
+  font-family: 'EB Garamond', serif;
+}
+.blogi-post h3 a:hover { color: var(--kuld); text-decoration: underline; }
+
+.blogi-post p {
+  color: var(--tekst-hele);
+  font-size: 0.93rem;
+  margin-top: 6px;
+}
+
+.loe-edasi {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--kuld);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.loe-edasi:hover { text-decoration: underline; }
+
+.koik-link {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--pruun);
+  text-decoration: none;
+}
+.koik-link:hover { color: var(--kuld); text-decoration: underline; }
+
+/* Külgriba */
+.kylgriba {
+  border-left: 1px solid var(--piir-hele);
+  padding-left: 32px;
+}
+
+.kylg-plokk {
+  margin-bottom: 36px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--piir-hele);
+}
+.kylg-plokk:last-child { border-bottom: none; }
+
+.sundmus-rida {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--piir-hele);
+  font-size: 0.9rem;
+  align-items: baseline;
+}
+.sundmus-rida:last-child { border-bottom: none; }
+.sund-kuup {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  color: var(--kuld);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.galerii-ruudustik {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  margin-top: 8px;
+}
+.galerii-ruudustik img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: sepia(30%) contrast(0.9);
+  transition: filter .3s;
+  display: block;
+}
+.galerii-ruudustik a:hover img { filter: sepia(0%) contrast(1); }
+
+.meist-tekst {
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--tekst-hele);
+}
+
+@media (max-width: 760px) {
+  .kaks-veergu { grid-template-columns: 1fr; }
+  .kylgriba { border-left: none; border-top: 1px solid var(--piir-hele); padding-left: 0; padding-top: 28px; }
+  .tsitaat-riba { flex-direction: column; gap: 10px; }
+  .tsitaat-riba img { height: 40px; }
+}
+</style>

@@ -7,7 +7,38 @@ interface Props {
   lang: string;
 }
 
-const { title, description = 'Kolme Krooni Klubi', lang } = Astro.props;
+const { title, description = 'Kolme Krooni Klubi — Harju Maarügemendi ajalooklubi', lang } = Astro.props;
+
+const navItems = {
+  et: [
+    { href: `/${lang}/`, label: 'Avaleht' },
+    { href: `/${lang}/meist/`, label: 'Meist' },
+    { href: `/${lang}/harju-maarugement/`, label: 'Harju Maarügement' },
+    { href: `/${lang}/blogi/`, label: 'Blogi' },
+    { href: `/${lang}/galerii/`, label: 'Galerii' },
+    { href: `/${lang}/kalender/`, label: 'Kalender' },
+    { href: `/${lang}/kontakt/`, label: 'Kontakt' },
+  ],
+  sv: [
+    { href: `/${lang}/`, label: 'Hem' },
+    { href: `/${lang}/om-oss/`, label: 'Om oss' },
+    { href: `/${lang}/harju-infanteriregementet/`, label: 'Harju Inf. Reg.' },
+    { href: `/${lang}/blogg/`, label: 'Blogg' },
+    { href: `/${lang}/galleri/`, label: 'Galleri' },
+    { href: `/${lang}/kontakt/`, label: 'Kontakt' },
+  ],
+  en: [
+    { href: `/${lang}/`, label: 'Home' },
+    { href: `/${lang}/about/`, label: 'About' },
+    { href: `/${lang}/harju-regiment/`, label: 'Harju Regiment' },
+    { href: `/${lang}/blog/`, label: 'Blog' },
+    { href: `/${lang}/gallery/`, label: 'Gallery' },
+    { href: `/${lang}/contact/`, label: 'Contact' },
+  ],
+};
+
+const nav = navItems[lang as keyof typeof navItems] ?? navItems.et;
+const currentPath = Astro.url.pathname;
 ---
 
 <html lang={lang}>
@@ -20,42 +51,193 @@ const { title, description = 'Kolme Krooni Klubi', lang } = Astro.props;
     <meta name="description" content={description} />
     <title>{title} – Kolme Krooni Klubi</title>
   </head>
-  <body class="min-h-screen bg-white text-gray-900 font-serif">
-    <header class="border-b border-gray-200 bg-white">
-      <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-        <a href={`/${lang}/`} class="text-xl font-bold tracking-wide uppercase">
-          Kolme Krooni Klubi
-        </a>
-        <nav class="flex gap-4 text-sm">
-          <a href={`/${lang}/`} class="hover:underline">
-            {lang === 'et' ? 'Avaleht' : lang === 'sv' ? 'Hem' : 'Home'}
+  <body>
+    <div class="lehekylje-raam">
+
+      <!-- PÄIS -->
+      <header class="paised">
+        <div class="paised-sisu">
+          <a href={`/${lang}/`} class="logo-link">
+            <img src="/logo.jpg" alt="Kolme Krooni Klubi" class="logo-pilt" />
           </a>
-          <a href={`/${lang}/meist/`} class="hover:underline">
-            {lang === 'et' ? 'Meist' : lang === 'sv' ? 'Om oss' : 'About'}
-          </a>
-          <a href={`/${lang}/blogi/`} class="hover:underline">
-            {lang === 'et' ? 'Blogi' : lang === 'sv' ? 'Blogg' : 'Blog'}
-          </a>
-          <a href={`/${lang}/kontakt/`} class="hover:underline">
-            {lang === 'et' ? 'Kontakt' : lang === 'sv' ? 'Kontakt' : 'Contact'}
-          </a>
-        </nav>
-        <div class="flex gap-2 text-sm">
-          <a href="/et/" class={lang === 'et' ? 'font-bold underline' : 'hover:underline'}>ET</a>
-          <a href="/sv/" class={lang === 'sv' ? 'font-bold underline' : 'hover:underline'}>SV</a>
-          <a href="/en/" class={lang === 'en' ? 'font-bold underline' : 'hover:underline'}>EN</a>
+          <div class="brand">
+            <a href={`/${lang}/`} class="brand-nimi">Kolme Krooni Klubi</a>
+            <div class="brand-alap">Harju Maarügemendi ajalooklubi · est. 2009</div>
+          </div>
+          <div class="keelevahetaja">
+            <a href="/et/" class={lang === 'et' ? 'aktiivne' : ''}>EST</a>
+            <a href="/sv/" class={lang === 'sv' ? 'aktiivne' : ''}>SWE</a>
+            <a href="/en/" class={lang === 'en' ? 'aktiivne' : ''}>ENG</a>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      <div class="dekor-riba"></div>
 
-    <main class="max-w-5xl mx-auto px-4 py-8">
-      <slot />
-    </main>
+      <!-- NAV -->
+      <nav class="navigatsioon">
+        <div class="nav-sisu">
+          {nav.map(item => (
+            <a
+              href={item.href}
+              class={currentPath === item.href || currentPath.startsWith(item.href + '/') ? 'aktiivne' : ''}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </nav>
 
-    <footer class="border-t border-gray-200 mt-16">
-      <div class="max-w-5xl mx-auto px-4 py-6 text-sm text-gray-500 text-center">
-        &copy; {new Date().getFullYear()} Kolme Krooni Klubi
-      </div>
-    </footer>
+      <!-- SISU -->
+      <main class="pohisisu">
+        <slot />
+      </main>
+
+      <!-- JALUS -->
+      <footer class="jalus">
+        <div class="jalus-sisu">
+          <span>&copy; {new Date().getFullYear()} MTÜ Kolme Krooni Klubi</span>
+          <span><a href="mailto:info@kolmekrooniklubi.ee">info@kolmekrooniklubi.ee</a></span>
+          <span>EST · SWE · ENG</span>
+        </div>
+      </footer>
+
+    </div>
   </body>
 </html>
+
+<style>
+.lehekylje-raam {
+  max-width: 1140px;
+  margin: 0 auto;
+  background: var(--paber);
+  box-shadow: 0 0 40px rgba(0,0,0,0.25);
+}
+
+/* Päis */
+.paised {
+  background: var(--paber-varjund);
+  border-bottom: 2px solid var(--piir);
+  padding: 28px 40px;
+}
+.paised-sisu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.logo-link { flex-shrink: 0; }
+.logo-pilt { height: 100px; width: auto; }
+.brand { flex: 1; }
+.brand-nimi {
+  font-family: 'Cinzel', 'EB Garamond', serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--pruun);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-decoration: none;
+  display: block;
+}
+.brand-nimi:hover { color: var(--kuld); }
+.brand-alap {
+  font-style: italic;
+  color: var(--kuld);
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+/* Keelevahetaja */
+.keelevahetaja {
+  display: flex;
+  gap: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+}
+.keelevahetaja a {
+  color: var(--pruun);
+  text-decoration: none;
+  padding: 3px 10px;
+  border: 1px solid var(--piir);
+  transition: all .2s;
+}
+.keelevahetaja a.aktiivne,
+.keelevahetaja a:hover {
+  background: var(--pruun);
+  color: var(--paber);
+  border-color: var(--pruun);
+}
+
+/* Dekoratiivne riba */
+.dekor-riba {
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--kuld) 0px, var(--kuld) 6px,
+    transparent 6px, transparent 12px
+  );
+  opacity: 0.4;
+}
+
+/* Nav */
+.navigatsioon {
+  background: var(--pruun);
+  padding: 0 40px;
+}
+.nav-sisu {
+  display: flex;
+  overflow-x: auto;
+}
+.navigatsioon a {
+  display: block;
+  padding: 13px 16px;
+  color: #e8d8b8;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.07em;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: all .2s;
+}
+.navigatsioon a:hover,
+.navigatsioon a.aktiivne {
+  color: #fff;
+  border-bottom-color: var(--kuld-hele);
+}
+
+/* Põhisisu */
+.pohisisu {
+  padding: 40px;
+  min-height: 60vh;
+}
+
+/* Jalus */
+.jalus {
+  background: var(--pruun);
+  color: #c8b090;
+  font-size: 0.85rem;
+  padding: 24px 40px;
+}
+.jalus-sisu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.jalus a { color: #e8c880; text-decoration: none; }
+.jalus a:hover { text-decoration: underline; }
+
+/* Mobiil */
+@media (max-width: 760px) {
+  .paised { padding: 20px; }
+  .paised-sisu { flex-wrap: wrap; }
+  .logo-pilt { height: 72px; }
+  .brand-nimi { font-size: 1.5rem; }
+  .brand-alap { font-size: 0.88rem; }
+  .keelevahetaja { width: 100%; }
+  .navigatsioon { padding: 0 20px; }
+  .pohisisu { padding: 24px 20px; }
+  .jalus { padding: 20px; }
+  .jalus-sisu { flex-direction: column; text-align: center; gap: 8px; }
+}
+</style>
