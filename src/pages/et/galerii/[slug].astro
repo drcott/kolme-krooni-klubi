@@ -27,7 +27,61 @@ const { Content } = await render(album);
       <Content />
     </div>
   </article>
+
+  <!-- Lightbox -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Pildi suurvaade">
+    <button id="lb-sulge" aria-label="Sulge">✕</button>
+    <button id="lb-eelmine" aria-label="Eelmine pilt">&#8592;</button>
+    <img id="lb-pilt" src="" alt="" />
+    <button id="lb-jarmine" aria-label="Järgmine pilt">&#8594;</button>
+    <div id="lb-loendur"></div>
+  </div>
 </BaseLayout>
+
+<script>
+  const lightbox = document.getElementById('lightbox')!;
+  const lbPilt = document.getElementById('lb-pilt') as HTMLImageElement;
+  const lbLoendur = document.getElementById('lb-loendur')!;
+
+  const lingid = Array.from(
+    document.querySelectorAll<HTMLAnchorElement>('.galerii-sisu a')
+  ).filter(a => a.querySelector('img'));
+
+  let praegune = 0;
+
+  function ava(indeks: number) {
+    praegune = (indeks + lingid.length) % lingid.length;
+    const href = lingid[praegune].href;
+    lbPilt.src = href;
+    lbPilt.alt = lingid[praegune].querySelector('img')?.alt ?? '';
+    lbLoendur.textContent = `${praegune + 1} / ${lingid.length}`;
+    lightbox.classList.add('aktiivne');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function sulge() {
+    lightbox.classList.remove('aktiivne');
+    document.body.style.overflow = '';
+    lbPilt.src = '';
+  }
+
+  lingid.forEach((a, i) => {
+    a.addEventListener('click', e => { e.preventDefault(); ava(i); });
+  });
+
+  document.getElementById('lb-sulge')!.addEventListener('click', sulge);
+  document.getElementById('lb-eelmine')!.addEventListener('click', () => ava(praegune - 1));
+  document.getElementById('lb-jarmine')!.addEventListener('click', () => ava(praegune + 1));
+
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) sulge(); });
+
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('aktiivne')) return;
+    if (e.key === 'Escape') sulge();
+    if (e.key === 'ArrowLeft') ava(praegune - 1);
+    if (e.key === 'ArrowRight') ava(praegune + 1);
+  });
+</script>
 
 <style>
 .artikkel-päis {
@@ -52,6 +106,76 @@ h1 {
   font-weight: 600;
   color: var(--pruun);
   line-height: 1.25;
+}
+</style>
+
+<style>
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+#lightbox.aktiivne { display: flex; }
+#lb-pilt {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border: 2px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+}
+#lb-sulge {
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity .2s;
+  z-index: 1001;
+}
+#lb-sulge:hover { opacity: 1; }
+#lb-eelmine, #lb-jarmine {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 2rem;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+  z-index: 1001;
+}
+#lb-eelmine { left: 16px; }
+#lb-jarmine { right: 16px; }
+#lb-eelmine:hover, #lb-jarmine:hover { background: rgba(255,255,255,0.25); }
+#lb-loendur {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.1em;
+}
+@media (max-width: 600px) {
+  #lb-eelmine { left: 4px; }
+  #lb-jarmine { right: 4px; }
+  #lb-eelmine, #lb-jarmine { width: 40px; height: 40px; font-size: 1.4rem; }
 }
 </style>
 
