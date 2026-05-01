@@ -7,7 +7,10 @@ interface Props {
   lang: string;
 }
 
-const { title, description = 'Kolme Krooni Klubi — Harju Maarügemendi ajalooklubi', lang } = Astro.props;
+const { title, description = 'Kolme Krooni Klubi — Harju Maarügemendi ajalooklubi, Põhjasõja rekonstruktsioon', lang } = Astro.props;
+const siteUrl = 'https://kolme-krooni-klubi.marko-a00.workers.dev';
+const pageUrl = `${siteUrl}${Astro.url.pathname}`;
+const ogImage = `${siteUrl}/logo.jpg`;
 
 const navItems = {
   et: [
@@ -50,6 +53,18 @@ const currentPath = Astro.url.pathname;
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title} – Kolme Krooni Klubi</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content={`${title} – Kolme Krooni Klubi`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === 'et' ? 'et_EE' : lang === 'sv' ? 'sv_SE' : 'en_GB'} />
+    <!-- Canonical -->
+    <link rel="canonical" href={pageUrl} />
+    <!-- Cloudflare Web Analytics -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "ASENDA_SEE_OMA_TOKENIGA"}'></script>
   </head>
   <body>
     <div class="lehekylje-raam">

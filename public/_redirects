@@ -1,0 +1,53 @@
+# Voog vana sait → uued URL-id
+# Tipp-taseme lehed
+/meist           /et/meist/       301
+/about-us        /en/meist/       301
+/blog            /et/blogi/       301
+/news            /en/blogi/       301
+/nyheter         /sv/blogi/       301
+/galerii         /et/galerii/     301
+/gallery         /en/galerii/     301
+/galleri         /sv/galerii/     301
+/kalender        /et/kalender/    301
+/kontakt         /et/kontakt/     301
+/contact         /en/kontakt/     301
+/toetajad        /et/lehed/toetajad/  301
+/pood            /et/lehed/pood/      301
+/failid          /et/lehed/failid/    301
+
+# Blogipostitused
+/blog/pohjasoja-lahing-rakveres        /et/blogi/pohjasoja-lahing-rakveres/       301
+/blog/talvine-narva-lahi               /et/blogi/talvine-narva-lahi/              301
+/blog/ajalugu-elustub-taas-narvas      /et/blogi/ajalugu-elustub-taas-narvas/     301
+/blog/ajaloofestival-narvas            /et/blogi/ajaloofestival-narvas/           301
+/blog/karoliinid-harjumaal             /et/blogi/karoliinid-harjumaal/            301
+/blog/gnw-2012-25-dot-05-27-dot-05-estonia  /et/blogi/gnw-2012-25-dot-05-27-dot-05-estonia/  301
+/blog/marma-war-game                   /et/blogi/marma-war-game/                  301
+/blog/harju-rug                        /et/blogi/harju-rug/                       301
+/blog/valga-militaarajaloo-festival    /et/blogi/valga-militaarajaloo-festival/   301
+/blog/mtu-kolme-krooni-klubi-on-asutatud  /et/blogi/mtu-kolme-krooni-klubi-on-asutatud/  301
+/blog/kalender-2012                    /et/blogi/kalender-2012/                   301
+/blog/jalle                            /et/blogi/jalle/                           301
+/news/gnw2012                          /en/blogi/gnw2012/                         301
+
+# Harju Maarügement artiklid
+/meist/harju-maarugement                          /et/harju-maarugement/  301
+/meist/harju-maarugement/bistram                  /et/harju-maarugement/bistram/  301
+/meist/harju-maarugement/bogislaus-von-der-pahlen /et/harju-maarugement/bogislaus-von-der-pahlen/  301
+/meist/harju-maarugement/harju-rugemendi-vormid   /et/harju-maarugement/harju-rugemendi-vormid/  301
+/meist/harju-maarugement/sojaartiklid             /et/harju-maarugement/sojaartiklid/  301
+/meist/harju-maarugement/vande-tekst              /et/harju-maarugement/vande-tekst/  301
+/meist/lisainformatsioon                          /et/lisainformatsioon/  301
+
+# Galerii albumid
+/galerii/narva-2010             /et/galerii/narva-2010/          301
+/galerii/narva-august-2009      /et/galerii/narva-august-2009/   301
+/galerii/narva-august-2011      /et/galerii/narva-august-2011/   301
+/galerii/narva-november-2010    /et/galerii/narva-november-2010/ 301
+/galerii/narva-november-2012    /et/galerii/narva-november-2012/ 301
+/galerii/narva-november-2013    /et/galerii/narva-november-2013/ 301
+/galerii/narva-november-2014    /et/galerii/narva-november-2014/ 301
+/galerii/viiburi-2010           /et/galerii/viiburi-2010/        301
+/galerii/dunamunde-juuli-2010   /et/galerii/dunamunde-juuli-2010/  301
+/galerii/sagadi-2012            /et/galerii/sagadi-2012/         301
+/galerii/rakvere-august-2011    /et/galerii/rakvere-august-2011/ 301

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kolme-krooni-klubi.marko-a00.workers.dev/sitemap-index.xml
