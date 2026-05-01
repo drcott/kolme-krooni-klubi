@@ -1,20 +1,19 @@
 ---
-title: "Harju maarügement!"
-slug: "harju-rugemendi-kompaniilipp"
-lang: "et"
-kategooria: "harju-maarugement"
+title: Harju rügemendi kompaniilipp
+slug: harju-rugemendi-kompaniilipp
+lang: et
+kategooria: harju-maarugement
 ---
 
-### harju rügemendi kompaniilipp
+### Harju rügemendi kompaniilipp
 
-  
 ![](/pildid/harju-maarugement/4_large.jpg)Akvarell Harju rügemendi kompaniilipust 1707. Akvarell on valminud originaali
-järgi, mis asub trofeena Peterburis, Peeter-Pauli kindluses.  
+järgi, mis asub trofeena Peterburis, Peeter-Pauli kindluses.
 Allikas: Akvarell asub Rootsi
 Sõjamuuseumis, Fanritningar.   
 
 Lippude kviitungi tekst:  
-  
+
 Kvitens över fanorna till oberst von der Pahlens
 Harriska lantregemente, malade av trofémalaren Olof Hoffmann, dat. Stochkolm,
 den 27 juli 1707
@@ -51,7 +50,7 @@ här med weder börligen qvitteres.
 Stockholm, dn. 27,. Juli Ao. 1707.
 
 Olof Hoffmann  
-  
+
 Tõlge:  
 
 "Kuningliku Kammerkolleegiumi nõudmise ja
@@ -79,7 +78,7 @@ loorberipärg.--------------------25 hõbetaalrti.
 Teeb kõigi 8 lipu kohta kakssada ja
 viisteist hõbetaalrit, milline raha on mulle hr. Girshi õigesti maksnud ja mis
 on siinkohal asjakohaselt kviteeritud.  
-  
+
 Allikas: Rootsi Lossiarhiiv-Slottsarkivet Stockholm,
 Klädkammaren II, Reviderade räkenskaper C:32, 1707, Räkenskaper för K. Kts och
 Kronans kläd-och kommisskammare, s. 363.  
@@ -98,7 +97,7 @@ vahele asetatud paberid.
 
 Kokku kogu kulu 558 hõbetaalrit koos
 töötasuga.  
-  
+
 Allikas: Rootsi Lossiarhiiv-Slottsarkivet Stockholm,
 Klädkammaren II, Reviderade räkenskaper C:32, 1707, Räkenskaper för K. Kts och
 Kronans kläd-och kommisskammare, s. 359-360.
